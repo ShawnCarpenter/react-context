@@ -1,13 +1,15 @@
 import React from 'react';
-import { useSwitchTheme } from '../../hooks/theme';
+import { useSwitchTheme, useTheme } from '../../hooks/theme';
+import styles from './Header.css';
 
 const Header = () => {
   const switchTheme = useSwitchTheme();
- 
+  const theme = useTheme();
+
   return (
-    <div>
-      <h1>Header</h1>
-      <button onClick={switchTheme}>Hit the lights!</button>
+    <div className={styles.Header} style={theme}>
+      <h1>Themes, yay...</h1>
+      <button onClick={switchTheme} style={theme}>Hit the lights!</button>
     </div>
   );
 };
