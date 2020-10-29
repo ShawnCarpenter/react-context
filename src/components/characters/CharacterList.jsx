@@ -1,10 +1,13 @@
 import React from 'react';
 import { useCharacters } from '../../hooks/characters';
+import { useThemeType } from '../../hooks/theme';
 import CharacterItem from './CharacterItem';
 import styles from './CharacterList.css';
 
 export const CharacterList = () => {
   const { loading, characters } = useCharacters();
+  const themeSelection = useThemeType();
+
 
   if(loading) return <h1>Loading...</h1>;
   const characterElements = characters.map(character => (
@@ -13,7 +16,9 @@ export const CharacterList = () => {
     </li>
   ));
   return (
-    <ul data-testid="characters" className={styles.CharacterList}>
+    <ul data-testid="characters" className={
+      styles.CharacterList,
+      styles[themeSelection]}>
       {characterElements}
     </ul>
   );

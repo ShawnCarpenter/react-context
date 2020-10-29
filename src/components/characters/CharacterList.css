@@ -11,3 +11,13 @@
     list-style: none;
   }
 }
+
+.darkMode {
+  background-color: black;
+  color: white;
+}
+
+.lightMode {
+  background-color: white;
+  color:black;
+}
